@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace XOgame
@@ -28,142 +29,680 @@ namespace XOgame
 
 
             bool click = true;
+            List<Button> buttons = new List<Button>();
+            buttons.Add(btnOne); 
+            buttons.Add(btnTwo);
+            buttons.Add(btnThree);
+            buttons.Add(btnFour);
+            buttons.Add(btnFive);
+            buttons.Add(btnSix);
+            buttons.Add(btnSeven);
+            buttons.Add(btnEight);
+            buttons.Add(btnNine);
             //
             // First field
             //
-            btnOne = new Button();
-            btnOne.Size = new Size(100, 100);
-            btnOne.Location = new Point(0, 0);
-            btnOne.Font = new Font("Times New Roman", 28);
-            btnOne.Click += (e, sender) =>
+            buttons[0] = new Button();
+            buttons[0].Size = new Size(100, 100);
+            buttons[0].Location = new Point(0, 0);
+            buttons[0].Font = new Font("Times New Roman", 28);
+            buttons[0].Click += (e, sender) =>
             {
-                if (click) btnOne.Text = "X";
-                else btnOne.Text = "0";
+                if (click) buttons[0].Text = "X";
+                else buttons[0].Text = "0";
                 click = !click;
-                btnOne.Enabled = false;
+                buttons[0].Enabled = false;
+                if (buttons[0].Text.Equals("X") && buttons[1].Text.Equals("X") && buttons[2].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[2].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("X") && buttons[3].Text.Equals("X") && buttons[6].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[1].Text.Equals("0") && buttons[2].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[2].BackColor = Color.YellowGreen;
+                } 
+                else if(buttons[0].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                } 
+                else if(buttons[0].Text.Equals("0") && buttons[3].Text.Equals("0") && buttons[6].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Second field
             //
-            btnTwo = new Button();
-            btnTwo.Size = new Size(100, 100);
-            btnTwo.Location = new Point(101, 0);
-            btnTwo.Font = new Font("Times New Roman", 28);
-            btnTwo.Click += (e, sender) =>
+            buttons[1] = new Button();
+            buttons[1].Size = new Size(100, 100);
+            buttons[1].Location = new Point(101, 0);
+            buttons[1].Font = new Font("Times New Roman", 28);
+            buttons[1].Click += (e, sender) =>
             {
-                if (click) btnTwo.Text = "X";
-                else btnTwo.Text = "0";
+                if (click) buttons[1].Text = "X";
+                else buttons[1].Text = "0";
                 click = !click;
-                btnTwo.Enabled = false;
+                buttons[1].Enabled = false;
+                if (buttons[0].Text.Equals("X") && buttons[1].Text.Equals("X") && buttons[2].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[2].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[1].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[7].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[1].Text.Equals("0") && buttons[2].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[2].BackColor = Color.YellowGreen;
+                } 
+                else if(buttons[1].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[7].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Third field
             //
-            btnThree = new Button();
-            btnThree.Size = new Size(100, 100);
-            btnThree.Location = new Point(201, 0);
-            btnThree.Font = new Font("Times New Roman", 28);
-            btnThree.Click += (e, sender) =>
+            buttons[2] = new Button();
+            buttons[2].Size = new Size(100, 100);
+            buttons[2].Location = new Point(201, 0);
+            buttons[2].Font = new Font("Times New Roman", 28);
+            buttons[2].Click += (e, sender) =>
             {
-                if (click) btnThree.Text = "X";
-                else btnThree.Text = "0";
+                if (click) buttons[2].Text = "X";
+                else buttons[2].Text = "0";
                 click = !click;
-                btnThree.Enabled = false;
+                buttons[2].Enabled = false;
+                if (buttons[0].Text.Equals("X") && buttons[1].Text.Equals("X") && buttons[2].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[2].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[6].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("X") && buttons[5].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[1].Text.Equals("0") && buttons[2].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[2].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[6].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                } 
+                else if (buttons[2].Text.Equals("0") && buttons[5].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Fourth field
             //
-            btnFour = new Button();
-            btnFour.Size = new Size(100, 100);
-            btnFour.Location = new Point(0, 101);
-            btnFour.Font = new Font("Times New Roman", 28);
-            btnFour.Click += (e, sender) =>
+            buttons[3] = new Button();
+            buttons[3].Size = new Size(100, 100);
+            buttons[3].Location = new Point(0, 101);
+            buttons[3].Font = new Font("Times New Roman", 28);
+            buttons[3].Click += (e, sender) =>
             {
-                if (click) btnFour.Text = "X";
-                else btnFour.Text = "0";
+                if (click) buttons[3].Text = "X";
+                else buttons[3].Text = "0";
                 click = !click;
-                btnFour.Enabled = false;
+                buttons[3].Enabled = false;
+                if (buttons[0].Text.Equals("X") && buttons[3].Text.Equals("X") && buttons[6].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[3].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[5].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[3].Text.Equals("0") && buttons[6].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[3].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[5].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Fifth field
             //
-            btnFive = new Button();
-            btnFive.Size = new Size(100, 100);
-            btnFive.Location = new Point(101, 101);
-            btnFive.Font = new Font("Times New Roman", 28);
-            btnFive.Click += (e, sender) =>
+            buttons[4] = new Button();
+            buttons[4].Size = new Size(100, 100);
+            buttons[4].Location = new Point(101, 101);
+            buttons[4].Font = new Font("Times New Roman", 28);
+            buttons[4].Click += (e, sender) =>
             {
-                if (click) btnFive.Text = "X";
-                else btnFive.Text = "0";
+                if (click) buttons[4].Text = "X";
+                else buttons[4].Text = "0";
                 click = !click;
-                btnFive.Enabled = false;
+                buttons[4].Enabled = false;
+                if (buttons[1].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[7].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[6].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[3].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[5].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[1].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[7].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[6].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[3].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[5].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Sixth field
             //
-            btnSix = new Button();
-            btnSix.Size = new Size(100, 100);
-            btnSix.Location = new Point(201, 101);
-            btnSix.Font = new Font("Times New Roman", 28);
-            btnSix.Click += (e, sender) =>
+            buttons[5] = new Button();
+            buttons[5].Size = new Size(100, 100);
+            buttons[5].Location = new Point(201, 101);
+            buttons[5].Font = new Font("Times New Roman", 28);
+            buttons[5].Click += (e, sender) =>
             {
-                if (click) btnSix.Text = "X";
-                else btnSix.Text = "0";
+                if (click) buttons[5].Text = "X";
+                else buttons[5].Text = "0";
                 click = !click;
-                btnSix.Enabled = false;
+                buttons[5].Enabled = false;                
+                if (buttons[2].Text.Equals("X") && buttons[5].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[3].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[5].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("0") && buttons[5].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[3].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[5].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Seventh field
             //
-            btnSeven = new Button();
-            btnSeven.Size = new Size(100, 100);
-            btnSeven.Location = new Point(0, 201);
-            btnSeven.Font = new Font("Times New Roman", 28);
-            btnSeven.Click += (e, sender) =>
+            buttons[6] = new Button();
+            buttons[6].Size = new Size(100, 100);
+            buttons[6].Location = new Point(0, 201);
+            buttons[6].Font = new Font("Times New Roman", 28);
+            buttons[6].Click += (e, sender) =>
             {
-                if (click) btnSeven.Text = "X";
-                else btnSeven.Text = "0";
+                if (click) buttons[6].Text = "X";
+                else buttons[6].Text = "0";
                 click = !click;
-                btnSeven.Enabled = false;
+                buttons[6].Enabled = false;
+                if (buttons[2].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[6].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[6].Text.Equals("X") && buttons[7].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[6].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("X") && buttons[3].Text.Equals("X") && buttons[6].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[6].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[6].Text.Equals("0") && buttons[7].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[6].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[3].Text.Equals("0") && buttons[6].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[3].BackColor = Color.YellowGreen;
+                    buttons[6].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Eighth field
             //
-            btnEight = new Button();
-            btnEight.Size = new Size(100, 100);
-            btnEight.Location = new Point(101, 201);
-            btnEight.Font = new Font("Times New Roman", 28);
-            btnEight.Click += (e, sender) =>
+            buttons[7] = new Button();
+            buttons[7].Size = new Size(100, 100);
+            buttons[7].Location = new Point(101, 201);
+            buttons[7].Font = new Font("Times New Roman", 28);
+            buttons[7].Click += (e, sender) =>
             {
-                if (click) btnEight.Text = "X";
-                else btnEight.Text = "0";
+                if (click) buttons[7].Text = "X";
+                else buttons[7].Text = "0";
                 click = !click;
-                btnEight.Enabled = false;
+                buttons[7].Enabled = false;
+                if (buttons[6].Text.Equals("X") && buttons[7].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[6].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[1].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[7].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[6].Text.Equals("0") && buttons[7].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[6].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[1].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[7].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[1].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                }
             };
             //
             // Ninth field
             //
-            btnNine = new Button();
-            btnNine.Size = new Size(100, 100);
-            btnNine.Location = new Point(201, 201);
-            btnNine.Font = new Font("Times New Roman", 28);
-            btnNine.Click += (e, sender) =>
+            buttons[8] = new Button();
+            buttons[8].Size = new Size(100, 100);
+            buttons[8].Location = new Point(201, 201);
+            buttons[8].Font = new Font("Times New Roman", 28);
+            buttons[8].Click += (e, sender) =>
             {
-                if (click) btnNine.Text = "X";
-                else btnNine.Text = "0";
+                if (click) buttons[8].Text = "X";
+                else buttons[8].Text = "0";
                 click = !click;
-                btnNine.Enabled = false;
+                buttons[8].Enabled = false;
+                if (buttons[6].Text.Equals("X") && buttons[7].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[6].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("X") && buttons[4].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("X") && buttons[5].Text.Equals("X") && buttons[8].Text.Equals("X"))
+                {
+                    this.Text = "X Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[6].Text.Equals("0") && buttons[7].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[6].BackColor = Color.YellowGreen;
+                    buttons[7].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[0].Text.Equals("0") && buttons[4].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[0].BackColor = Color.YellowGreen;
+                    buttons[4].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
+                else if (buttons[2].Text.Equals("0") && buttons[5].Text.Equals("0") && buttons[8].Text.Equals("0"))
+                {
+                    this.Text = "0 Wins";
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttons[2].BackColor = Color.YellowGreen;
+                    buttons[5].BackColor = Color.YellowGreen;
+                    buttons[8].BackColor = Color.YellowGreen;
+                }
             };
 
-            this.Controls.Add(btnOne);
-            this.Controls.Add(btnTwo);
-            this.Controls.Add(btnThree);
-            this.Controls.Add(btnFour);
-            this.Controls.Add(btnSeven);
-            this.Controls.Add(btnEight);
-            this.Controls.Add(btnNine);
-            this.Controls.Add(btnFive);
-            this.Controls.Add(btnSix);
+            this.Controls.Add(buttons[0]);
+            this.Controls.Add(buttons[1]);
+            this.Controls.Add(buttons[2]);
+            this.Controls.Add(buttons[3]);
+            this.Controls.Add(buttons[4]);
+            this.Controls.Add(buttons[5]);
+            this.Controls.Add(buttons[6]);
+            this.Controls.Add(buttons[7]);
+            this.Controls.Add(buttons[8]);
         }
 
         Button btnOne;
